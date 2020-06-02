@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="总结：1、查询时用 not in 效率极其低下，因此结合left join改为in查询，效率很快 原语句: 12select * from my_test_table where id not in (select b.id as id from ( SELECT MAX(a.`ModifyAt`)ModifyAt,a.userid FROM my_test_table a   GROUP BY">
+  <meta name="description" content="总结：1、查询时用 not in 效率极其低下，因此结合left join改为in查询，效率很快">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用SQL命令的in&amp;not in等删除数据的总结">
 <meta property="og:url" content="https://davideyang125.github.io/2020/04/22/使用SQL命令的in-not-in等删除数据的总结/index.html">
 <meta property="og:site_name" content="方寸之间">
-<meta property="og:description" content="总结：1、查询时用 not in 效率极其低下，因此结合left join改为in查询，效率很快 原语句: 12select * from my_test_table where id not in (select b.id as id from ( SELECT MAX(a.`ModifyAt`)ModifyAt,a.userid FROM my_test_table a   GROUP BY">
+<meta property="og:description" content="总结：1、查询时用 not in 效率极其低下，因此结合left join改为in查询，效率很快">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-01T09:27:16.616Z">
+<meta property="og:updated_time" content="2020-06-02T03:33:31.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用SQL命令的in&amp;not in等删除数据的总结">
-<meta name="twitter:description" content="总结：1、查询时用 not in 效率极其低下，因此结合left join改为in查询，效率很快 原语句: 12select * from my_test_table where id not in (select b.id as id from ( SELECT MAX(a.`ModifyAt`)ModifyAt,a.userid FROM my_test_table a   GROUP BY">
+<meta name="twitter:description" content="总结：1、查询时用 not in 效率极其低下，因此结合left join改为in查询，效率很快">
 
 
 
@@ -383,7 +383,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-06-01 17:27:16" itemprop="dateModified" datetime="2020-06-01T17:27:16+08:00">2020-06-01</time>
+                <time title="修改时间：2020-06-02 11:33:31" itemprop="dateModified" datetime="2020-06-02T11:33:31+08:00">2020-06-02</time>
               
             
           </span>
@@ -418,6 +418,7 @@
 
       
         <p>总结：<br>1、查询时用 not in 效率极其低下，因此结合left join改为in查询，效率很快</p>
+<a id="more"></a>
 <p>原语句:</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> my_test_table <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">select</span> b.id <span class="keyword">as</span> <span class="keyword">id</span> <span class="keyword">from</span> ( <span class="keyword">SELECT</span> <span class="keyword">MAX</span>(a.<span class="string">`ModifyAt`</span>)ModifyAt,a.userid <span class="keyword">FROM</span> my_test_table a   <span class="keyword">GROUP</span> <span class="keyword">BY</span> a.UserId,a.SeriesId,a.CourseId) c</span><br><span class="line"> <span class="keyword">INNER</span> <span class="keyword">JOIN</span> <span class="string">`my_test_table`</span> b <span class="keyword">ON</span> c.userid=b.userid <span class="keyword">AND</span> c.ModifyAt=b.ModifyAt)</span><br></pre></td></tr></table></figure>
 <p>优化后：</p>
