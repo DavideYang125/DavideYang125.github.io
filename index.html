@@ -1123,7 +1123,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/2019/05/10/asp-net-core-自定义中间件/">
+    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/2019/12/20/Saas软件更新以及小程序更新的教训/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="向萧">
@@ -1143,7 +1143,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/05/10/asp-net-core-自定义中间件/" class="post-title-link" itemprop="url">asp.net core 自定义中间件</a>
+                <a href="/2019/12/20/Saas软件更新以及小程序更新的教训/" class="post-title-link" itemprop="url">Saas软件更新以及小程序更新的教训</a>
               
             
           </h1>
@@ -1168,7 +1168,7 @@
                 
               
 
-              <time title="创建时间：2019-05-10 00:22:24" itemprop="dateCreated datePublished" datetime="2019-05-10T00:22:24+08:00">2019-05-10</time>
+              <time title="创建时间：2019-12-20 16:08:00" itemprop="dateCreated datePublished" datetime="2019-12-20T16:08:00+08:00">2019-12-20</time>
             
 
             
@@ -1185,7 +1185,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-06-01 14:44:39" itemprop="dateModified" datetime="2020-06-01T14:44:39+08:00">2020-06-01</time>
+                <time title="修改时间：2020-06-02 13:47:21" itemprop="dateModified" datetime="2020-06-02T13:47:21+08:00">2020-06-02</time>
               
             
           </span>
@@ -1220,12 +1220,167 @@
 
       
         
-          <p>官方文档：<a href="https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/middleware/?view=aspnetcore-2.1" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/aspnet/core/fundamentals/middleware/?view=aspnetcore-2.1</a></p>
-<p>中间件的定义：中间件是组装到应用程序管道中以处理请求和响应的软件</p>
+          
+            <p>Saas软件即使版本更新多次，也要兼顾老客户，兼容旧功能。</p>
+<p>对于小程序调用的接口，无法保证客户会更新小程序，因此需要兼容使用旧版本小程序的客户，更不能删除接口。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/2019/12/18/查询并批量插入数据的Sql命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="向萧">
+      <meta itemprop="description" content="弱小和无知不是生存的障碍，傲慢才是">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="方寸之间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/18/查询并批量插入数据的Sql命令/" class="post-title-link" itemprop="url">查询并批量插入数据的Sql命令</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-18 14:16:00" itemprop="dateCreated datePublished" datetime="2019-12-18T14:16:00+08:00">2019-12-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-06-02 13:48:22" itemprop="dateModified" datetime="2020-06-02T13:48:22+08:00">2020-06-02</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> student(<span class="keyword">id</span>,xuesheng,yuwen,shuxue,yingyu)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,xuesheng,yuwen,shuxue,yingyu <span class="keyword">FROM</span> stu;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/05/10/asp-net-core-自定义中间件/#more" rel="contents">
+              <a class="btn" href="/2019/12/18/查询并批量插入数据的Sql命令/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1285,7 +1440,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/2019/05/10/Net-core使用Autofac进行依赖注入示例/">
+    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/2019/09/25/缓存穿透、缓存雪崩、缓存击穿的概念和解决方案/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="向萧">
@@ -1305,7 +1460,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/05/10/Net-core使用Autofac进行依赖注入示例/" class="post-title-link" itemprop="url">.Net core使用Autofac进行依赖注入示例</a>
+                <a href="/2019/09/25/缓存穿透、缓存雪崩、缓存击穿的概念和解决方案/" class="post-title-link" itemprop="url">缓存穿透、缓存雪崩、缓存击穿的概念和解决方案</a>
               
             
           </h1>
@@ -1330,7 +1485,7 @@
                 
               
 
-              <time title="创建时间：2019-05-10 00:17:55" itemprop="dateCreated datePublished" datetime="2019-05-10T00:17:55+08:00">2019-05-10</time>
+              <time title="创建时间：2019-09-25 09:50:00" itemprop="dateCreated datePublished" datetime="2019-09-25T09:50:00+08:00">2019-09-25</time>
             
 
             
@@ -1347,7 +1502,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-06-01 14:44:39" itemprop="dateModified" datetime="2020-06-01T14:44:39+08:00">2020-06-01</time>
+                <time title="修改时间：2020-06-02 13:57:42" itemprop="dateModified" datetime="2020-06-02T13:57:42+08:00">2020-06-02</time>
               
             
           </span>
@@ -1382,12 +1537,11 @@
 
       
         
-          <h3 id="一、官方文档"><a href="#一、官方文档" class="headerlink" title="一、官方文档"></a>一、官方文档</h3><p><a href="https://autofaccn.readthedocs.io/zh/latest/index.html" target="_blank" rel="noopener">https://autofaccn.readthedocs.io/zh/latest/index.html</a></p>
-<p>二、新建.net core 控制台程序</p>
+          <p>1、缓存穿透<br>概念：<br>查询一个必然不存在的数据，则缓存中不存在，之后会去查询数据库。如果有大量这样的数据查询，则会导致数据库压力过大，进而可能导致数据库挂掉。这个漏洞可以被用来恶意攻击，压垮数据库。<br>解决方案：<br>(1) 对于在数据库中查询是空的情况，仍然进行缓存。只是时间设置短一点，比如正常数据缓存一周，查询是空的数据缓存10分钟。<br>(2) 对一定不存在的key进行过滤。可以把所有的可能存在的key放到一个大的Bitmap中，查询时通过该bitmap过滤。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/05/10/Net-core使用Autofac进行依赖注入示例/#more" rel="contents">
+              <a class="btn" href="/2019/09/25/缓存穿透、缓存雪崩、缓存击穿的概念和解决方案/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1447,7 +1601,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/2019/05/10/调用打码平台api获取验证码-C-版/">
+    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/2019/07/01/软件、工具等收集记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="向萧">
@@ -1467,7 +1621,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/05/10/调用打码平台api获取验证码-C-版/" class="post-title-link" itemprop="url">调用打码平台api获取验证码 (C#版)</a>
+                <a href="/2019/07/01/软件、工具等收集记录/" class="post-title-link" itemprop="url">软件、工具等收集记录</a>
               
             
           </h1>
@@ -1492,7 +1646,7 @@
                 
               
 
-              <time title="创建时间：2019-05-10 00:15:24" itemprop="dateCreated datePublished" datetime="2019-05-10T00:15:24+08:00">2019-05-10</time>
+              <time title="创建时间：2019-07-01 15:10:00" itemprop="dateCreated datePublished" datetime="2019-07-01T15:10:00+08:00">2019-07-01</time>
             
 
             
@@ -1509,7 +1663,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-06-01 14:44:39" itemprop="dateModified" datetime="2020-06-01T14:44:39+08:00">2020-06-01</time>
+                <time title="修改时间：2020-06-02 13:54:52" itemprop="dateModified" datetime="2020-06-02T13:54:52+08:00">2020-06-02</time>
               
             
           </span>
@@ -1544,14 +1698,12 @@
 
       
         
-          <h3 id="一、打码平台很多，这里选择两个：联众和斐斐"><a href="#一、打码平台很多，这里选择两个：联众和斐斐" class="headerlink" title="一、打码平台很多，这里选择两个：联众和斐斐"></a>一、打码平台很多，这里选择两个：联众和斐斐</h3><p>联众开发文档:</p>
-<p><a href="https://www.jsdati.com/docs/guide" target="_blank" rel="noopener">https://www.jsdati.com/docs/guide</a></p>
-<p>斐斐开发文档:</p>
-<p><a href="http://docs.fateadm.com/web/#/1?page_id=1" target="_blank" rel="noopener">http://docs.fateadm.com/web/#/1?page_id=1</a></p>
+          <p>1、uTools:工具集合</p>
+<p>2、Typora:markdown编辑器</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/05/10/调用打码平台api获取验证码-C-版/#more" rel="contents">
+              <a class="btn" href="/2019/07/01/软件、工具等收集记录/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1611,7 +1763,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/2019/05/10/关于工作单元模式-工作单元模式与EF结合的使用/">
+    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/2019/06/25/net-core-2-x默认不支持gb2312/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="向萧">
@@ -1631,7 +1783,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/05/10/关于工作单元模式-工作单元模式与EF结合的使用/" class="post-title-link" itemprop="url">关于工作单元模式--工作单元模式与EF结合的使用</a>
+                <a href="/2019/06/25/net-core-2-x默认不支持gb2312/" class="post-title-link" itemprop="url">.net core 2.x默认不支持gb2312</a>
               
             
           </h1>
@@ -1656,7 +1808,7 @@
                 
               
 
-              <time title="创建时间：2019-05-10 00:13:36" itemprop="dateCreated datePublished" datetime="2019-05-10T00:13:36+08:00">2019-05-10</time>
+              <time title="创建时间：2019-06-25 17:55:00" itemprop="dateCreated datePublished" datetime="2019-06-25T17:55:00+08:00">2019-06-25</time>
             
 
             
@@ -1673,7 +1825,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-06-01 14:44:39" itemprop="dateModified" datetime="2020-06-01T14:44:39+08:00">2020-06-01</time>
+                <time title="修改时间：2020-06-02 13:59:48" itemprop="dateModified" datetime="2020-06-02T13:59:48+08:00">2020-06-02</time>
               
             
           </span>
@@ -1708,177 +1860,15 @@
 
       
         
-          <p>工作单元模式往往和仓储模式一起使用，本篇文章讲到的是工作单元模式和仓储模式一起用来在ef外面包一层，其实EF本身就是工作单元模式和仓储模式使用的经典例子，其中DbContext就是工作单元，而每个DbSet就是每个仓储，只有DbContext可以进行持久化操作。</p>
-          <!--noindex-->
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/05/10/关于工作单元模式-工作单元模式与EF结合的使用/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/2019/01/27/使用Selenium-ChromeDriver登录微博并且获取cookie/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="向萧">
-      <meta itemprop="description" content="弱小和无知不是生存的障碍，傲慢才是">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="方寸之间">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/01/27/使用Selenium-ChromeDriver登录微博并且获取cookie/" class="post-title-link" itemprop="url">使用Selenium+ChromeDriver登录微博并且获取cookie</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-27 08:33:01" itemprop="dateCreated datePublished" datetime="2019-01-27T08:33:01+08:00">2019-01-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-06-01 14:44:39" itemprop="dateModified" datetime="2020-06-01T14:44:39+08:00">2020-06-01</time>
-              
-            
-          </span>
+            <p>采集数据时，乱码，之前遇到过这个情况，于是老办法：</p>
+<p>果断使用<strong>Encoding.GetEncoding(“GB2312”)，</strong>抛异常。搜了下，是因为.net core默认不支持gb2312</p>
+<p>所以，两个办法：</p>
+<p>1、改为.net </p>
+<p>2 、在Nuget引入 system.text.encoding.codepages， 再加上这行代码： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Encoding.RegisterProvider(CodePagesEncodingProvider.Instance)</span><br></pre></td></tr></table></figure>
 
           
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>代码如下，注意事项：在获取节点前、点击按钮前、点击按钮后、以及获取cookie前的操作，要暂停一下，一般暂停几秒即可，视加载速度而定。防止节点或者页面没有加载完成导致无法获取节点或者给节点赋值不正确等错误 </p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/27/使用Selenium-ChromeDriver登录微博并且获取cookie/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -1922,7 +1912,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1966,7 +1956,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

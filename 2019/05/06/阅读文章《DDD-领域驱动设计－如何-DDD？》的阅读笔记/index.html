@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="文章链接： https://www.cnblogs.com/xishuai/p/how-to-implement-ddd.html 文章作者： 田园里的蟋蟀 首先感谢作者写出这么好的文章。 以下是我的阅读笔记： 1、进行战略建模时不要考虑技术性的东西，不要考虑战术建模的概念，需要搞清楚业务，搞清楚业务的核心，把业务核心功能描述出来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阅读文章《DDD 领域驱动设计－如何 DDD？》的阅读笔记">
+<meta property="og:url" content="https://davideyang125.github.io/2019/05/06/阅读文章《DDD-领域驱动设计－如何-DDD？》的阅读笔记/index.html">
+<meta property="og:site_name" content="方寸之间">
+<meta property="og:description" content="文章链接： https://www.cnblogs.com/xishuai/p/how-to-implement-ddd.html 文章作者： 田园里的蟋蟀 首先感谢作者写出这么好的文章。 以下是我的阅读笔记： 1、进行战略建模时不要考虑技术性的东西，不要考虑战术建模的概念，需要搞清楚业务，搞清楚业务的核心，把业务核心功能描述出来。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-06-02T05:40:23.340Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="阅读文章《DDD 领域驱动设计－如何 DDD？》的阅读笔记">
+<meta name="twitter:description" content="文章链接： https://www.cnblogs.com/xishuai/p/how-to-implement-ddd.html 文章作者： 田园里的蟋蟀 首先感谢作者写出这么好的文章。 以下是我的阅读笔记： 1、进行战略建模时不要考虑技术性的东西，不要考虑战术建模的概念，需要搞清楚业务，搞清楚业务的核心，把业务核心功能描述出来。">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://davideyang125.github.io/2019/05/06/阅读文章《DDD-领域驱动设计－如何-DDD？》的阅读笔记/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>阅读文章《DDD 领域驱动设计－如何 DDD？》的阅读笔记 | 方寸之间</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">方寸之间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/2019/05/06/阅读文章《DDD-领域驱动设计－如何-DDD？》的阅读笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="向萧">
+      <meta itemprop="description" content="弱小和无知不是生存的障碍，傲慢才是">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="方寸之间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">阅读文章《DDD 领域驱动设计－如何 DDD？》的阅读笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-06 09:44:00" itemprop="dateCreated datePublished" datetime="2019-05-06T09:44:00+08:00">2019-05-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-06-02 13:40:23" itemprop="dateModified" datetime="2020-06-02T13:40:23+08:00">2020-06-02</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>文章链接：</p>
+<p><a href="https://www.cnblogs.com/xishuai/p/how-to-implement-ddd.html" target="_blank" rel="noopener">https://www.cnblogs.com/xishuai/p/how-to-implement-ddd.html</a></p>
+<p>文章作者： 田园里的蟋蟀</p>
+<p>首先感谢作者写出这么好的文章。</p>
+<p>以下是我的阅读笔记：</p>
+<p>1、进行战略建模时不要考虑技术性的东西，不要考虑战术建模的概念，需要搞清楚业务，搞清楚业务的核心，把业务核心功能描述出来。</p>
+<a id="more"></a>
+<p>如文章中举例，微博的评论提到功能，描述其业务：评论时@一个人，然后通知被@的人<br>核心业务是两个：1、匹配到@的人，2、通知@的人</p>
+<p>2、作者把Mention，即“提到”作为一个聚合根，并且定义了两个方法：抽离出@的对象，通知@的对象。<br>丰富了Mention这个领域模型。当提到规则改变时只需要修改Mention。<br>这个思考过程有几个点：理清核心业务是匹配人和通知人；把提到作为一个领域模型，一个聚合根；<br>给这个实体赋予两个方法，变为充血模型。<br>应用层的应用服务只是牵涉到流程，而不牵涉到业务，只是起到了聚合操作的作用：抽取用户、判断更新、持久化、通知</p>
+<p>3、作者的另一个例子是 “权限申请和审核系统”<br>首先在了解业务的基础上进行战略建模以及描述出核心业务：<br>业务描述：用户申请权限，管理员后台审核权限。</p>
+<p>核心业务是什么，以及判断的依据是什么呢。<br>核心业务的判断条件：一般核心业务包含在简单的描述里，比如“提到”系统里的“抽离”和“通知”<br>还有一种方式是判断其是否经常发生，对于业务流程一般不发生变化，变化的是核心业务，DDD应对的就是这种变化。<br>核心业务就是申请本身，这里我称之为申请单。<br>我的判断：<br>核心领域：申请单<br>申请单作为聚合根和实体，可以包含通知用户审核结果和开通权限两个领域<br>领域事件：开通权限和通知用户。</p>
+<p>疑问：验证用户信息和验证是否有资格申请的验证放哪里。<br>通知用户是否需要作为一个实体。<br>解决疑问(注：我的方法是错误的)：验证用户信息、验证资格和通知都可以放在申请实体这个领域模型里，作为领域事件。</p>
+<p>反思：作者把验证用户信息和资格放在了领域服务。我是放在领域事件里，我想错了。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/27/抓取某网站信息时遇到的问题及解决-The-character-set-provided-in-ContentType-is-invalid-Cannot-read-content-as-string-using-an-invalid-character-set/" rel="next" title="抓取某网站信息时遇到的问题及解决 The character set provided in ContentType is invalid. Cannot read content as string using an invalid character set">
+                <i class="fa fa-chevron-left"></i> 抓取某网站信息时遇到的问题及解决 The character set provided in ContentType is invalid. Cannot read content as string using an invalid character set
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/09/关于工作单元模式——工作单元模式与EF结合的使用/" rel="prev" title="关于工作单元模式——工作单元模式与EF结合的使用">
+                关于工作单元模式——工作单元模式与EF结合的使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/avatar.jpg" alt="向萧">
+            
+              <p class="site-author-name" itemprop="name">向萧</p>
+              <div class="site-description motion-element" itemprop="description">弱小和无知不是生存的障碍，傲慢才是</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">向萧</span>
+
+  
+
+  
+</div>
+
+
+ 
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
