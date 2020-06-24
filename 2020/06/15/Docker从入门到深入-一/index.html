@@ -107,7 +107,13 @@
 <meta property="og:image" content="https://davideyang125.github.io/2020/06/15/Docker从入门到深入-一/images.png">
 <meta property="og:image" content="https://davideyang125.github.io/2020/06/15/Docker从入门到深入-一/runhello.png">
 <meta property="og:image" content="https://davideyang125.github.io/2020/06/15/Docker从入门到深入-一/dockerps.png">
-<meta property="og:updated_time" content="2020-06-20T10:16:04.567Z">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/924618/202006/924618-20200624163829843-1133469054.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/924618/202006/924618-20200624164428444-1470822674.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/924618/202006/924618-20200624164744032-1060593052.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/924618/202006/924618-20200624164839652-1978017030.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/924618/202006/924618-20200624170344619-885672705.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/924618/202006/924618-20200624165847351-564504669.png">
+<meta property="og:updated_time" content="2020-06-24T09:07:01.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker从入门到深入(一)">
 <meta name="twitter:description" content="一、什么是Docker概念Docker是在传统容器的基础上，进行了进一步的封装，从文件系统、网络互连到进程隔离等等，极大的简化了容器的创建和维护。使得Docker比虚拟机技术更加轻便快捷。 项目地址https://github.com/moby/moby 二、为什么要用DockerDocker的优势：1、更高效的利用系统资源 ​    由于容器不需要进行硬件虚拟以及运行完整操作系统等额外开销，Do">
@@ -506,8 +512,9 @@
 <h5 id="私有-Docker-Registry"><a href="#私有-Docker-Registry" class="headerlink" title="私有 Docker Registry"></a>私有 Docker Registry</h5><p>除了使用公开服务外，用户还可以在本地搭建私有 Docker Registry。Docker 官方提供了 <a href="https://hub.docker.com/_/registry/" target="_blank" rel="noopener">Docker Registry</a> 镜像，可以直接使用做为私有 Registry 服务。</p>
 <p>这几个概念可以结合git仓库概念来理解。</p>
 <h3 id="四、安装和启动"><a href="#四、安装和启动" class="headerlink" title="四、安装和启动"></a>四、安装和启动</h3><p>以CentOs7为例:</p>
-<p>安装命令：yum install -y Docker</p>
-<p>启动：service start docker</p>
+<p>安装命令：<code>yum install docker-ce -y</code></p>
+<p>启动：<code>service start docker</code>  或者 <code>systemctl start docker</code></p>
+<p>查看docker版本 : <code>docker version</code></p>
 <p>不同的操作系统具体的安装和启动命令请自行搜索</p>
 <h3 id="五、使用镜像和容器"><a href="#五、使用镜像和容器" class="headerlink" title="五、使用镜像和容器"></a>五、使用镜像和容器</h3><h4 id="1、获取镜像"><a href="#1、获取镜像" class="headerlink" title="1、获取镜像"></a>1、获取镜像</h4><p>从镜像仓库获取镜像的命令是 <code>docker pull</code>。命令格式是</p>
 <p><code>docker pull [OPTIONS] NAME[:TAG|@DIGEST]</code></p>
@@ -515,14 +522,39 @@
 <p>现在我们从官方镜像仓库DockerHub拉取一个镜像 ，叫hello-world。执行命令  <code>docker pull hello -world</code></p>
 <p><img src="/2020/06/15/Docker从入门到深入-一/docker_pull.png" alt="docker_pull"></p>
 <p>可以看到，我们没有指定tag，就会默认拉取最新的镜像。</p>
+<p>如果是自己构建镜像。命令是<code>docker build</code>。之后我们会讲到。</p>
 <h4 id="2、查看镜像列表"><a href="#2、查看镜像列表" class="headerlink" title="2、查看镜像列表"></a>2、查看镜像列表</h4><p><code>docker images</code>查看镜像，发现我们已经获取到镜像。也可以使用<code>docker image ls</code>。</p>
 <p><img src="/2020/06/15/Docker从入门到深入-一/images.png" alt="images"></p>
 <h4 id="3、启动容器"><a href="#3、启动容器" class="headerlink" title="3、启动容器"></a>3、启动容器</h4><p>有了镜像，就可以基于镜像启动容器</p>
-<p><code>docker run</code>启动容器</p>
+<p>启动容器：<code>docker run</code></p>
 <p><img src="/2020/06/15/Docker从入门到深入-一/runhello.png" alt="runhello"></p>
 <p>可以看到启动成功</p>
+<p>run命令也是很多可选参数，可以进一步了解下。比如：</p>
+<p>-d：指定容器运行于前台还是后台，默认是前台。</p>
+<p>-p：指定容器暴露的端口。</p>
 <h4 id="4、查看容器列表"><a href="#4、查看容器列表" class="headerlink" title="4、查看容器列表"></a>4、查看容器列表</h4><p><img src="/2020/06/15/Docker从入门到深入-一/dockerps.png" alt="dockerps"></p>
-<h3 id="未完待续。。。。"><a href="#未完待续。。。。" class="headerlink" title="未完待续。。。。"></a>未完待续。。。。</h3>
+<h4 id="5、容器的启动"><a href="#5、容器的启动" class="headerlink" title="5、容器的启动"></a>5、容器的启动</h4><p>（1）新建并启动容器 ：<code>docker run</code> </p>
+<p>​    run 的后面可以写镜像id，也可以写镜像名称加标签</p>
+<p>（2）把终止状态的容器重新启动：<code>docker start</code></p>
+<h4 id="6、守护态运行"><a href="#6、守护态运行" class="headerlink" title="6、守护态运行"></a>6、守护态运行</h4><p>需要让 Docker 在后台运行而不是直接把执行命令的结果输出在当前宿主机下。此时，可以通过添加 <code>-d</code> 参数来实现。</p>
+<p> <img src="https://img2020.cnblogs.com/blog/924618/202006/924618-20200624163829843-1133469054.png" alt="img"></p>
+<p> 可以看到，结果并没有输出，如果想看输出，可以查看docker日志，使用docker logs命令，后面写容器id</p>
+<p><img src="https://img2020.cnblogs.com/blog/924618/202006/924618-20200624164428444-1470822674.png" alt="img"></p>
+<h4 id="7、终止容器"><a href="#7、终止容器" class="headerlink" title="7、终止容器"></a>7、终止容器</h4><p><code>docker stop</code></p>
+<h4 id="8、删除容器"><a href="#8、删除容器" class="headerlink" title="8、删除容器"></a>8、删除容器</h4><p><code>docker rm</code></p>
+<p><img src="https://img2020.cnblogs.com/blog/924618/202006/924618-20200624164744032-1060593052.png" alt="img"></p>
+<p> 清理所有终止状态的容器：<code>docker container prune</code></p>
+<p><img src="https://img2020.cnblogs.com/blog/924618/202006/924618-20200624164839652-1978017030.png" alt="img"></p>
+<h4 id="9、删除镜像"><a href="#9、删除镜像" class="headerlink" title="9、删除镜像"></a>9、删除镜像</h4><p><code>docker rmi</code> </p>
+<p>  <img src="https://img2020.cnblogs.com/blog/924618/202006/924618-20200624170344619-885672705.png" alt="img"></p>
+<p> 如果用这个命令删除镜像出现如下错误：unable to delete 8cd7f050c277 (must be forced) - image is referenced in multiple repositories</p>
+<p>这个是因为有镜像id相同的镜像，解决办法是通过镜像名称加标签来删除，而不是使用镜像id</p>
+<h3 id="六、镜像仓库"><a href="#六、镜像仓库" class="headerlink" title="六、镜像仓库"></a>六、镜像仓库</h3><p>把镜像推送到镜像仓库，当需要再其他服务器用的时候，直接拉取就行。</p>
+<p>拉取镜像：<code>docker pull</code></p>
+<p>推送镜像：<code>docker push</code></p>
+<p>例如，使用阿里云镜像仓库，在阿里云新建镜像仓库后，可以看到操作指南如下：</p>
+<p><strong><img src="https://img2020.cnblogs.com/blog/924618/202006/924618-20200624165847351-564504669.png" alt="img"></strong></p>
+
       
     </div>
 
@@ -690,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、什么是Docker"><span class="nav-number">1.</span> <span class="nav-text">一、什么是Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#项目地址"><span class="nav-number">1.2.</span> <span class="nav-text">项目地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、为什么要用Docker"><span class="nav-number">2.</span> <span class="nav-text">二、为什么要用Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker的优势："><span class="nav-number">2.1.</span> <span class="nav-text">Docker的优势：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#与传统虚拟机技术的对比"><span class="nav-number">2.2.</span> <span class="nav-text">与传统虚拟机技术的对比</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、基本概念"><span class="nav-number">3.</span> <span class="nav-text">三、基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、镜像"><span class="nav-number">3.1.</span> <span class="nav-text">1、镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、容器"><span class="nav-number">3.2.</span> <span class="nav-text">2、容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、仓库"><span class="nav-number">3.3.</span> <span class="nav-text">3、仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#仓库"><span class="nav-number">3.3.1.</span> <span class="nav-text">仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Docker-Registry-公开服务"><span class="nav-number">3.3.2.</span> <span class="nav-text">Docker Registry 公开服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#私有-Docker-Registry"><span class="nav-number">3.3.3.</span> <span class="nav-text">私有 Docker Registry</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、安装和启动"><span class="nav-number">4.</span> <span class="nav-text">四、安装和启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、使用镜像和容器"><span class="nav-number">5.</span> <span class="nav-text">五、使用镜像和容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、获取镜像"><span class="nav-number">5.1.</span> <span class="nav-text">1、获取镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、查看镜像列表"><span class="nav-number">5.2.</span> <span class="nav-text">2、查看镜像列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、启动容器"><span class="nav-number">5.3.</span> <span class="nav-text">3、启动容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、查看容器列表"><span class="nav-number">5.4.</span> <span class="nav-text">4、查看容器列表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#未完待续。。。。"><span class="nav-number">6.</span> <span class="nav-text">未完待续。。。。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、什么是Docker"><span class="nav-number">1.</span> <span class="nav-text">一、什么是Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#项目地址"><span class="nav-number">1.2.</span> <span class="nav-text">项目地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、为什么要用Docker"><span class="nav-number">2.</span> <span class="nav-text">二、为什么要用Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker的优势："><span class="nav-number">2.1.</span> <span class="nav-text">Docker的优势：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#与传统虚拟机技术的对比"><span class="nav-number">2.2.</span> <span class="nav-text">与传统虚拟机技术的对比</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、基本概念"><span class="nav-number">3.</span> <span class="nav-text">三、基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、镜像"><span class="nav-number">3.1.</span> <span class="nav-text">1、镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、容器"><span class="nav-number">3.2.</span> <span class="nav-text">2、容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、仓库"><span class="nav-number">3.3.</span> <span class="nav-text">3、仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#仓库"><span class="nav-number">3.3.1.</span> <span class="nav-text">仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Docker-Registry-公开服务"><span class="nav-number">3.3.2.</span> <span class="nav-text">Docker Registry 公开服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#私有-Docker-Registry"><span class="nav-number">3.3.3.</span> <span class="nav-text">私有 Docker Registry</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、安装和启动"><span class="nav-number">4.</span> <span class="nav-text">四、安装和启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、使用镜像和容器"><span class="nav-number">5.</span> <span class="nav-text">五、使用镜像和容器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、获取镜像"><span class="nav-number">5.1.</span> <span class="nav-text">1、获取镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、查看镜像列表"><span class="nav-number">5.2.</span> <span class="nav-text">2、查看镜像列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、启动容器"><span class="nav-number">5.3.</span> <span class="nav-text">3、启动容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、查看容器列表"><span class="nav-number">5.4.</span> <span class="nav-text">4、查看容器列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、容器的启动"><span class="nav-number">5.5.</span> <span class="nav-text">5、容器的启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、守护态运行"><span class="nav-number">5.6.</span> <span class="nav-text">6、守护态运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、终止容器"><span class="nav-number">5.7.</span> <span class="nav-text">7、终止容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、删除容器"><span class="nav-number">5.8.</span> <span class="nav-text">8、删除容器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、删除镜像"><span class="nav-number">5.9.</span> <span class="nav-text">9、删除镜像</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、镜像仓库"><span class="nav-number">6.</span> <span class="nav-text">六、镜像仓库</span></a></li></ol></div>
             
 
           </div>
