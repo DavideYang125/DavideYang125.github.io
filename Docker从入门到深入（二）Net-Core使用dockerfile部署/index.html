@@ -96,18 +96,24 @@
 
 
 
-  <meta name="description" content="修改根目录站点配置文件_config.yml： permalink: :year/:month/:day/:title/ 比如可以去掉时间，改为 permalink: :title/">
-<meta name="keywords" content="hexo">
+  <meta name="description" content="一、打开VS，创建一个Web程序在index.html中添加几行代码: 12&amp;lt;h1&amp;gt;just for learning docker&amp;lt;/h1&amp;gt;&amp;lt;h1&amp;gt;Docker Demo&amp;lt;/h1&amp;gt; 二、添加Dockerfile右键—添加—Docker支持，Dockerfile会自动添加 按照修改下Dockerfile，我修改了.net 的基础镜像地址，因为我之前已">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo 修改文章url地址格式">
-<meta property="og:url" content="https://davideyang125.github.io/hexo-修改文章url地址格式/index.html">
+<meta property="og:title" content="Docker从入门到深入（二）Net Core使用dockerfile部署">
+<meta property="og:url" content="https://davideyang125.github.io/Docker从入门到深入（二）Net-Core使用dockerfile部署/index.html">
 <meta property="og:site_name" content="方寸之间">
-<meta property="og:description" content="修改根目录站点配置文件_config.yml： permalink: :year/:month/:day/:title/ 比如可以去掉时间，改为 permalink: :title/">
+<meta property="og:description" content="一、打开VS，创建一个Web程序在index.html中添加几行代码: 12&amp;lt;h1&amp;gt;just for learning docker&amp;lt;/h1&amp;gt;&amp;lt;h1&amp;gt;Docker Demo&amp;lt;/h1&amp;gt; 二、添加Dockerfile右键—添加—Docker支持，Dockerfile会自动添加 按照修改下Dockerfile，我修改了.net 的基础镜像地址，因为我之前已">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-07-03T02:29:35.924Z">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/924618/202007/924618-20200704171211415-271903203.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/924618/202007/924618-20200704160539061-249766333.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/924618/202007/924618-20200704161321382-1659599678.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/924618/202007/924618-20200704171820226-705310610.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/924618/202007/924618-20200704171315058-1752281180.png">
+<meta property="og:image" content="https://img2020.cnblogs.com/blog/924618/202007/924618-20200704171742350-593179701.png">
+<meta property="og:updated_time" content="2020-07-04T09:37:38.091Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo 修改文章url地址格式">
-<meta name="twitter:description" content="修改根目录站点配置文件_config.yml： permalink: :year/:month/:day/:title/ 比如可以去掉时间，改为 permalink: :title/">
+<meta name="twitter:title" content="Docker从入门到深入（二）Net Core使用dockerfile部署">
+<meta name="twitter:description" content="一、打开VS，创建一个Web程序在index.html中添加几行代码: 12&amp;lt;h1&amp;gt;just for learning docker&amp;lt;/h1&amp;gt;&amp;lt;h1&amp;gt;Docker Demo&amp;lt;/h1&amp;gt; 二、添加Dockerfile右键—添加—Docker支持，Dockerfile会自动添加 按照修改下Dockerfile，我修改了.net 的基础镜像地址，因为我之前已">
+<meta name="twitter:image" content="https://img2020.cnblogs.com/blog/924618/202007/924618-20200704171211415-271903203.png">
 
 
 
@@ -115,7 +121,7 @@
 
   
   
-  <link rel="canonical" href="https://davideyang125.github.io/hexo-修改文章url地址格式/">
+  <link rel="canonical" href="https://davideyang125.github.io/Docker从入门到深入（二）Net-Core使用dockerfile部署/">
 
 
 
@@ -125,7 +131,7 @@
   };
 </script>
 
-  <title>hexo 修改文章url地址格式 | 方寸之间</title>
+  <title>Docker从入门到深入（二）Net Core使用dockerfile部署 | 方寸之间</title>
   
 
 
@@ -353,7 +359,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/hexo-修改文章url地址格式/">
+    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/Docker从入门到深入（二）Net-Core使用dockerfile部署/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="向萧">
@@ -370,7 +376,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo 修改文章url地址格式
+          <h1 class="post-title" itemprop="name headline">Docker从入门到深入（二）Net Core使用dockerfile部署
 
               
             
@@ -396,7 +402,7 @@
                 
               
 
-              <time title="创建时间：2020-07-03 10:12:38" itemprop="dateCreated datePublished" datetime="2020-07-03T10:12:38+08:00">2020-07-03</time>
+              <time title="创建时间：2020-07-04 17:37:04" itemprop="dateCreated datePublished" datetime="2020-07-04T17:37:04+08:00">2020-07-04</time>
             
 
             
@@ -438,10 +444,27 @@
       
 
       
-        <p>修改根目录站点配置文件_config.yml：</p>
-<p>permalink: :year/:month/:day/:title/</p>
-<p>比如可以去掉时间，改为</p>
-<p>permalink: :title/</p>
+        <h3 id="一、打开VS，创建一个Web程序"><a href="#一、打开VS，创建一个Web程序" class="headerlink" title="一、打开VS，创建一个Web程序"></a>一、打开VS，创建一个Web程序</h3><p>在index.html中添加几行代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;just for learning docker&lt;/h1&gt;</span><br><span class="line">&lt;h1&gt;Docker Demo&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="二、添加Dockerfile"><a href="#二、添加Dockerfile" class="headerlink" title="二、添加Dockerfile"></a>二、添加Dockerfile</h3><p>右键—添加—Docker支持，Dockerfile会自动添加</p>
+<p>按照修改下Dockerfile，我修改了.net 的基础镜像地址，因为我之前已经把基础镜像放到了阿里云的镜像仓库，所以换成了自己的地址。</p>
+<p>再把dockerfile文件放到项目根目录下，也就是和sln文件同一个目录。（这个步骤不要忽略）</p>
+<p><img src="https://img2020.cnblogs.com/blog/924618/202007/924618-20200704171211415-271903203.png" alt="img"></p>
+<p>注意一下copy命令后面的项目文件的路径是否正确，不正确的话，构建镜像会报错。</p>
+<h3 id="三、把代码提交到远程仓库"><a href="#三、把代码提交到远程仓库" class="headerlink" title="三、把代码提交到远程仓库"></a>三、把代码提交到远程仓库</h3><p>这里我提交到了github。</p>
+<h3 id="四、clone代码"><a href="#四、clone代码" class="headerlink" title="四、clone代码"></a>四、clone代码</h3><p>这里默认你的服务器已经安装了docker、git</p>
+<p>把代码clone下来，然后进入到dockerfile所在目录</p>
+<p><img src="https://img2020.cnblogs.com/blog/924618/202007/924618-20200704160539061-249766333.png" alt="img"></p>
+<h3 id="五、构建镜像，创建容器"><a href="#五、构建镜像，创建容器" class="headerlink" title="五、构建镜像，创建容器"></a>五、构建镜像，创建容器</h3><p>进入到dockerfile目录后执行构建镜像的命令，使用命令docker build</p>
+<p> <img src="https://img2020.cnblogs.com/blog/924618/202007/924618-20200704161321382-1659599678.png" alt="img"></p>
+<p> 可以看到镜像正在一层一层的构建，不要忘记命令最后有个点，表示使用当前目录的dockerfile构建，test_app是取的镜像名称，v1.0是tag。</p>
+<p>构建成功后，使用docker images查看镜像</p>
+<p><img src="https://img2020.cnblogs.com/blog/924618/202007/924618-20200704171820226-705310610.png" alt="img"></p>
+<p>可以看到镜像已经存在。之后可以使用docker run命令来创建一个容器。其中-d表示启动后台进程 ，-p设置端口 最后面是镜像id</p>
+<p> <img src="https://img2020.cnblogs.com/blog/924618/202007/924618-20200704171315058-1752281180.png" alt="img"></p>
+<p> 用docker ps查看容器已经创建并启动了。</p>
+<h3 id="六、通过ip和端口访问地址"><a href="#六、通过ip和端口访问地址" class="headerlink" title="六、通过ip和端口访问地址"></a>六、通过ip和端口访问地址</h3><p><img src="https://img2020.cnblogs.com/blog/924618/202007/924618-20200704171742350-593179701.png" alt="img"></p>
+<p> 页面访问正常。至此，实践完成，我们对dockerfile应该有了初步的认识。</p>
 
       
     </div>
@@ -463,12 +486,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/hexo/" rel="tag"># hexo</a>
-          
-        </div>
-      
 
       
       
@@ -478,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/使用动态Sql执行sql命令/" rel="next" title="使用动态Sql执行sql命令">
-                <i class="fa fa-chevron-left"></i> 使用动态Sql执行sql命令
+              <a href="/hexo-修改文章url地址格式/" rel="next" title="hexo 修改文章url地址格式">
+                <i class="fa fa-chevron-left"></i> hexo 修改文章url地址格式
               </a>
             
           </div>
@@ -487,10 +504,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Docker从入门到深入（二）Net-Core使用dockerfile部署/" rel="prev" title="Docker从入门到深入（二）Net Core使用dockerfile部署">
-                Docker从入门到深入（二）Net Core使用dockerfile部署 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -534,8 +547,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -628,6 +650,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、打开VS，创建一个Web程序"><span class="nav-number">1.</span> <span class="nav-text">一、打开VS，创建一个Web程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、添加Dockerfile"><span class="nav-number">2.</span> <span class="nav-text">二、添加Dockerfile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、把代码提交到远程仓库"><span class="nav-number">3.</span> <span class="nav-text">三、把代码提交到远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、clone代码"><span class="nav-number">4.</span> <span class="nav-text">四、clone代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、构建镜像，创建容器"><span class="nav-number">5.</span> <span class="nav-text">五、构建镜像，创建容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、通过ip和端口访问地址"><span class="nav-number">6.</span> <span class="nav-text">六、通过ip和端口访问地址</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
