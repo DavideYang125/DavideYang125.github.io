@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="处理逻辑：切换到操作的目录，如果文件夹里的文件数量小于3，则不做操作，否则，按照创建时间倒序排列，遍历，跳过前3个文件，对于之后的文件执行删除操作。">
+  <meta name="description" content="1using Microsoft.Extensions.DependencyInjection; 123456789public class ThrottleFilterAttribute : Attribute, IActionFilter&amp;#123;    public void OnActionExecuting(ActionExecutingContext context)    &amp;#12">
 <meta property="og:type" content="article">
-<meta property="og:title" content="删除旧文件的批处理程序">
-<meta property="og:url" content="https://davideyang125.github.io/删除旧文件的批处理程序/index.html">
+<meta property="og:title" content="在ASP.NET Core的过滤器中使用依赖注入">
+<meta property="og:url" content="https://davideyang125.github.io/在ASP-NET-Core的过滤器中使用依赖注入/index.html">
 <meta property="og:site_name" content="方寸之间">
-<meta property="og:description" content="处理逻辑：切换到操作的目录，如果文件夹里的文件数量小于3，则不做操作，否则，按照创建时间倒序排列，遍历，跳过前3个文件，对于之后的文件执行删除操作。">
+<meta property="og:description" content="1using Microsoft.Extensions.DependencyInjection; 123456789public class ThrottleFilterAttribute : Attribute, IActionFilter&amp;#123;    public void OnActionExecuting(ActionExecutingContext context)    &amp;#12">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-08-26T06:15:12.984Z">
+<meta property="og:updated_time" content="2020-09-22T03:18:03.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="删除旧文件的批处理程序">
-<meta name="twitter:description" content="处理逻辑：切换到操作的目录，如果文件夹里的文件数量小于3，则不做操作，否则，按照创建时间倒序排列，遍历，跳过前3个文件，对于之后的文件执行删除操作。">
+<meta name="twitter:title" content="在ASP.NET Core的过滤器中使用依赖注入">
+<meta name="twitter:description" content="1using Microsoft.Extensions.DependencyInjection; 123456789public class ThrottleFilterAttribute : Attribute, IActionFilter&amp;#123;    public void OnActionExecuting(ActionExecutingContext context)    &amp;#12">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="https://davideyang125.github.io/删除旧文件的批处理程序/">
+  <link rel="canonical" href="https://davideyang125.github.io/在ASP-NET-Core的过滤器中使用依赖注入/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>删除旧文件的批处理程序 | 方寸之间</title>
+  <title>在ASP.NET Core的过滤器中使用依赖注入 | 方寸之间</title>
   
 
 
@@ -352,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/删除旧文件的批处理程序/">
+    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/在ASP-NET-Core的过滤器中使用依赖注入/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="向萧">
@@ -369,7 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">删除旧文件的批处理程序
+          <h1 class="post-title" itemprop="name headline">在ASP.NET Core的过滤器中使用依赖注入
 
               
             
@@ -395,7 +395,7 @@
                 
               
 
-              <time title="创建时间：2020-08-26 14:10:25" itemprop="dateCreated datePublished" datetime="2020-08-26T14:10:25+08:00">2020-08-26</time>
+              <time title="创建时间：2020-09-22 11:17:13" itemprop="dateCreated datePublished" datetime="2020-09-22T11:17:13+08:00">2020-09-22</time>
             
 
             
@@ -437,9 +437,8 @@
       
 
       
-        <p>处理逻辑：切换到操作的目录，如果文件夹里的文件数量小于3，则不做操作，否则，按照创建时间倒序排列，遍历，跳过前3个文件，对于之后的文件执行删除操作。</p>
-<a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">cd</span> D:\Task\testbat</span><br><span class="line"><span class="built_in">set</span> cnt=0</span><br><span class="line"><span class="keyword">for</span> %%A <span class="keyword">in</span> (*) <span class="keyword">do</span> <span class="built_in">set</span> /a cnt+=1</span><br><span class="line"><span class="built_in">echo</span> 文件数量是: %cnt% </span><br><span class="line"></span><br><span class="line">:: 数量小于3则退出命令</span><br><span class="line"><span class="keyword">if</span> %cnt% LSS 3 (</span><br><span class="line"><span class="built_in">echo</span> 数量小于3退出命令</span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">setlocal enabledelayedexpansion</span><br><span class="line"><span class="built_in">set</span> fileorder=0</span><br><span class="line"><span class="keyword">for</span> /f <span class="string">"tokens=1-3*"</span> %%a <span class="keyword">in</span> (<span class="string">'dir /a-d /tc/o-d ^|find ":"'</span>) <span class="keyword">do</span> ( </span><br><span class="line"><span class="built_in">echo</span>;%<span class="built_in">cd</span>%\%%d ^| %%a %%b ^| %%d</span><br><span class="line"><span class="built_in">set</span> /a fileorder+=1</span><br><span class="line"><span class="keyword">if</span>  !fileorder! GTR 4 del %<span class="built_in">cd</span>%\%%d</span><br><span class="line">)</span><br><span class="line"><span class="built_in">echo</span> 删除操作完成</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">using Microsoft.Extensions.DependencyInjection;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class ThrottleFilterAttribute : Attribute, IActionFilter</span><br><span class="line">&#123;</span><br><span class="line">    public void OnActionExecuting(ActionExecutingContext context)</span><br><span class="line">    &#123;</span><br><span class="line">        var cache = context.HttpContext.RequestServices.GetService&lt;IDistributedCache&gt;();</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -470,8 +469,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Docker从入门到深入（二）Net-Core使用dockerfile部署/" rel="next" title="Docker从入门到深入（二）Net Core使用dockerfile部署">
-                <i class="fa fa-chevron-left"></i> Docker从入门到深入（二）Net Core使用dockerfile部署
+              <a href="/删除旧文件的批处理程序/" rel="next" title="删除旧文件的批处理程序">
+                <i class="fa fa-chevron-left"></i> 删除旧文件的批处理程序
               </a>
             
           </div>
@@ -479,10 +478,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/在ASP-NET-Core的过滤器中使用依赖注入/" rel="prev" title="在ASP.NET Core的过滤器中使用依赖注入">
-                在ASP.NET Core的过滤器中使用依赖注入 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
