@@ -352,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/在ASP-NET-Core的过滤器中使用依赖注入/">
+    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/开发总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="向萧">
@@ -372,7 +372,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/在ASP-NET-Core的过滤器中使用依赖注入/" class="post-title-link" itemprop="url">在ASP.NET Core的过滤器中使用依赖注入</a>
+                <a href="/开发总结/" class="post-title-link" itemprop="url">开发总结</a>
               
             
           </h1>
@@ -397,7 +397,7 @@
                 
               
 
-              <time title="创建时间：2020-09-22 11:17:13" itemprop="dateCreated datePublished" datetime="2020-09-22T11:17:13+08:00">2020-09-22</time>
+              <time title="创建时间：2020-10-09 15:42:49" itemprop="dateCreated datePublished" datetime="2020-10-09T15:42:49+08:00">2020-10-09</time>
             
 
             
@@ -434,8 +434,14 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">using Microsoft.Extensions.DependencyInjection;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class ThrottleFilterAttribute : Attribute, IActionFilter</span><br><span class="line">&#123;</span><br><span class="line">    public void OnActionExecuting(ActionExecutingContext context)</span><br><span class="line">    &#123;</span><br><span class="line">        var cache = context.HttpContext.RequestServices.GetService&lt;IDistributedCache&gt;();</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p>开发的步骤</p>
+<p>1、彻底了解业务需求</p>
+<p>2、梳理并熟悉流程</p>
+<p>3、定模型</p>
+<p>4、梳理模块</p>
+<p>5、开始开发-写模型</p>
+<p>6、根据模型再次梳理模块和梳理以及细化思考流程</p>
+<p>7、分模块开发</p>
 
           
         
@@ -1868,7 +1874,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
