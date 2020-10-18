@@ -96,17 +96,18 @@
 
 
 
-  <meta name="description" content="官方文档：https://fluentvalidation.net/start#complex-properties 示例Demo:https://github.com/DavideYang125/FluentvalidationDemoConsoles">
+  <meta name="description" content="需要的库：pymysql、matplotlib 逻辑：查询出数据库的数据，定义两个数组用于画图，使用绘图库matplotlib画图">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="验证组件FluentValidation的使用示例">
-<meta property="og:url" content="https://davideyang125.github.io/验证组件FluentValidation的使用示例/index.html">
+<meta property="og:title" content="python画折线图">
+<meta property="og:url" content="https://davideyang125.github.io/python画折线图/index.html">
 <meta property="og:site_name" content="方寸之间">
-<meta property="og:description" content="官方文档：https://fluentvalidation.net/start#complex-properties 示例Demo:https://github.com/DavideYang125/FluentvalidationDemoConsoles">
+<meta property="og:description" content="需要的库：pymysql、matplotlib 逻辑：查询出数据库的数据，定义两个数组用于画图，使用绘图库matplotlib画图">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-02T05:53:44.166Z">
+<meta property="og:updated_time" content="2020-10-18T06:48:15.270Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="验证组件FluentValidation的使用示例">
-<meta name="twitter:description" content="官方文档：https://fluentvalidation.net/start#complex-properties 示例Demo:https://github.com/DavideYang125/FluentvalidationDemoConsoles">
+<meta name="twitter:title" content="python画折线图">
+<meta name="twitter:description" content="需要的库：pymysql、matplotlib 逻辑：查询出数据库的数据，定义两个数组用于画图，使用绘图库matplotlib画图">
 
 
 
@@ -114,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="https://davideyang125.github.io/验证组件FluentValidation的使用示例/">
+  <link rel="canonical" href="https://davideyang125.github.io/python画折线图/">
 
 
 
@@ -124,7 +125,7 @@
   };
 </script>
 
-  <title>验证组件FluentValidation的使用示例 | 方寸之间</title>
+  <title>python画折线图 | 方寸之间</title>
   
 
 
@@ -352,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/验证组件FluentValidation的使用示例/">
+    <link itemprop="mainEntityOfPage" href="https://davideyang125.github.io/python画折线图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="向萧">
@@ -369,7 +370,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">验证组件FluentValidation的使用示例
+          <h1 class="post-title" itemprop="name headline">python画折线图
 
               
             
@@ -395,7 +396,7 @@
                 
               
 
-              <time title="创建时间：2019-06-13 11:15:00" itemprop="dateCreated datePublished" datetime="2019-06-13T11:15:00+08:00">2019-06-13</time>
+              <time title="创建时间：2020-10-18 14:36:07" itemprop="dateCreated datePublished" datetime="2020-10-18T14:36:07+08:00">2020-10-18</time>
             
 
             
@@ -437,9 +438,14 @@
       
 
       
-        <p>官方文档：<a href="https://fluentvalidation.net/start#complex-properties" target="_blank" rel="noopener">https://fluentvalidation.net/start#complex-properties</a></p>
-<p>示例Demo:<a href="https://github.com/DavideYang125/FluentvalidationDemoConsoles" target="_blank" rel="noopener">https://github.com/DavideYang125/FluentvalidationDemoConsoles</a></p>
-
+        <p>需要的库：pymysql、matplotlib</p>
+<p>逻辑：查询出数据库的数据，定义两个数组用于画图，使用绘图库matplotlib画图</p>
+<a id="more"></a>
+<h4 id="一、从mysql库中查询数据"><a href="#一、从mysql库中查询数据" class="headerlink" title="一、从mysql库中查询数据"></a>一、从mysql库中查询数据</h4><p>新建一个py文件，写查询数据的方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Read_database</span> <span class="params">(sql)</span>:</span></span><br><span class="line">    user_name=<span class="string">'root'</span></span><br><span class="line">    password=<span class="string">'root'</span></span><br><span class="line">    address=<span class="string">'localhost'</span></span><br><span class="line">    port=<span class="string">'3306'</span></span><br><span class="line">    database_name=<span class="string">'test'</span></span><br><span class="line"></span><br><span class="line">    conn = pymysql.connect(host = address,user = user_name,passwd = password,\</span><br><span class="line">                           db = database_name , port = int(port) ,charset = <span class="string">"utf8mb4"</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment">#df = pd.read_sql (sql,con = conn)</span></span><br><span class="line">        cursor = conn.cursor()</span><br><span class="line">        cursor.execute(sql)</span><br><span class="line">        df = cursor.fetchall()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'\n Reading Error  \n'</span>)    </span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        conn.close()</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">'\n Completion of data reading \n'</span>)    </span><br><span class="line">    <span class="keyword">return</span> (df)</span><br></pre></td></tr></table></figure>
+<h4 id="二、再新建一个py文件：查询并构建折线图的数据"><a href="#二、再新建一个py文件：查询并构建折线图的数据" class="headerlink" title="二、再新建一个py文件：查询并构建折线图的数据"></a>二、再新建一个py文件：查询并构建折线图的数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">indexData = Read_database(<span class="string">"SELECT * FROM `cryindex` where CreateTime &gt;='2019-01-01' and CreateTime &lt; '2020-10-17' ORDER BY CreateTime"</span>)</span><br><span class="line"></span><br><span class="line">indexList = []</span><br><span class="line">timeList = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> indexData:</span><br><span class="line">    indexList.append(i[<span class="number">1</span>])</span><br><span class="line">    timeList.append(i[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<h4 id="三、画出折线图"><a href="#三、画出折线图" class="headerlink" title="三、画出折线图"></a>三、画出折线图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># plot中参数的含义分别是横轴值，纵轴值，线的形状，颜色，透明度,线的宽度和标签</span></span><br><span class="line">plt.plot(timeList,</span><br><span class="line">         indexList,</span><br><span class="line">         <span class="string">'ro-'</span>,</span><br><span class="line">         color=<span class="string">'#4169E1'</span>,</span><br><span class="line">         alpha=<span class="number">0.8</span>,</span><br><span class="line">         linewidth=<span class="number">1</span>,</span><br><span class="line">         label=<span class="string">'I'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示标签，如果不加这句，即使在plot中加了label='一些数字'的参数，最终还是不会显示标签</span></span><br><span class="line">plt.legend(loc=<span class="string">"upper right"</span>)</span><br><span class="line">plt.xlabel(<span class="string">'x轴数字'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'y轴数字'</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -460,6 +466,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
 
       
       
@@ -469,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/asp-net-core-自定义中间件/" rel="next" title="asp.net core 自定义中间件">
-                <i class="fa fa-chevron-left"></i> asp.net core 自定义中间件
+              <a href="/开发总结/" rel="next" title="开发总结">
+                <i class="fa fa-chevron-left"></i> 开发总结
               </a>
             
           </div>
@@ -478,10 +490,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/C-中DateTime-Ticks/" rel="prev" title="C#中DateTime.Ticks">
-                C#中DateTime.Ticks <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -525,8 +533,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -623,6 +640,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、从mysql库中查询数据"><span class="nav-number">1.</span> <span class="nav-text">一、从mysql库中查询数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、再新建一个py文件：查询并构建折线图的数据"><span class="nav-number">2.</span> <span class="nav-text">二、再新建一个py文件：查询并构建折线图的数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、画出折线图"><span class="nav-number">3.</span> <span class="nav-text">三、画出折线图</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
